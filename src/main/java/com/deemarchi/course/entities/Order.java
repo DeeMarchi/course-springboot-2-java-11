@@ -106,7 +106,7 @@ public class Order implements Serializable {
 	public Double getTotal() {
 		return items.stream()
 				.map(OrderItem::getSubTotal)
-				.reduce(0d, (acc, subtotal) -> acc + subtotal);
+				.reduce(0d, Double::sum);
 	}
 	
 	@Override
